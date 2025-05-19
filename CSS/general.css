@@ -10,9 +10,13 @@
 
 .grid {
      display: grid;
-     grid-template-columns: repeat(2, 1fr);
      row-gap: 9.6rem;
      column-gap: 6.4rem;
+     
+}
+
+.grid:not(:last-child) {
+     margin-bottom: 9.6rem;
 }
 
 .grid--center--v{
@@ -32,6 +36,8 @@
 .grid--4-cols {
      grid-template-columns: repeat(4, 1fr);
 } 
+
+
 
 .heading-primary {
      font-size: 5.2rem;
@@ -131,4 +137,25 @@ strong {
 
 .center-text {
      text-align: center;
+}
+
+.list {
+     list-style: none;
+     display: flex;
+     flex-direction: column;
+     gap: 1.6rem;
+     
+}
+
+.list-icon {
+     width: 3rem;
+     height: 3rem;
+     color: #cf711f;
+}
+
+.list-item {
+     font-size: 1.8rem;
+     display: flex;
+     align-items: center;
+     gap: 1.6rem;
 }
