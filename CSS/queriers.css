@@ -121,33 +121,42 @@
           display: block;
      }
 
-     .main-nav {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vw;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: aliceblue;
-          transition: all 0.5s ease-in;
-          transform: translatex(100%);
+  .main-nav {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
 
-          opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in;
 
-          pointer-events: none;
+    /* Hide navigation */
+    /* Allows NO transitions at all */
+    /* display: none; */
 
-          visibility: hidden;
+    /* 1) Hide it visually */
+    opacity: 0;
 
-     }
+    /* 2) Make it unaccessible to mouse and keyboard */
+    pointer-events: none;
+
+    /* 3) Hide it from screen readers */
+    visibility: hidden;
+  }
 
      .nav-open .main-nav {
-          opacity: 1;
-          pointer-events: auto;
-          visibility: visible;
-          transform: translatex(0%);
-     }
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
 
      .main-nav-list {
           flex-direction: column;
@@ -161,12 +170,12 @@
 
 
      .nav-open .icon-mobile-nav[name="close-outline"] {
-     display: block;
-     }
+    display: block;
+  }
 
-     .nav-open .icon-mobile-nav[name="menu-outline"] {
-     display: none;
-     }
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
 }
 
 @media (max-width:44em) {
@@ -271,3 +280,58 @@
 }
 
 }
+
+
+/**************************/
+/* Fixing Safari flexbox gap */
+/**************************/
+
+.no-flexbox-gap .main-nav-list li:not(:last-child) {
+  margin-right: 4.8rem;
+}
+
+.no-flexbox-gap .list-item:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.no-flexbox-gap .list-icon:not(:last-child) {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .delivered-faces {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .meal-attribute:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.no-flexbox-gap .meal-icon {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .footer-row div:not(:last-child) {
+  margin-right: 6.4rem;
+}
+
+.no-flexbox-gap .social-links li:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.no-flexbox-gap .footer-nav li:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+@media (max-width: 75em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 3.2rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 4.8rem;
+  }
+}
+
